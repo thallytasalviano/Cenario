@@ -1,300 +1,109 @@
-/* ========================================
-   RESET
-======================================== */
-
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
-
-/* ========================================
-   BODY
-======================================== */
-
 body {
-    font-family: Arial, Helvetica, sans-serif;
-
-    background: #eeeeee;
-
-    color: #222;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #87ceeb;
 }
 
-
-/* ========================================
-   HEADER
-======================================== */
-
-header {
-    background: #222;
-
-    color: white;
-
-    text-align: center;
-
-    padding: 20px;
-}
-
-header h1 {
-    margin-bottom: 8px;
-}
-
-header p {
-    color: #cccccc;
-}
-
-
-/* ========================================
-   CONTEÚDO
-======================================== */
-
-main {
-    width: 90%;
-
-    max-width: 1200px;
-
-    margin: 25px auto;
-}
-
-
-/* ========================================
-   INTRODUÇÃO
-======================================== */
-
-.introducao {
-    background: white;
-
-    padding: 20px;
-
-    margin-bottom: 20px;
-
-    border-radius: 10px;
-}
-
-.introducao h2 {
-    margin-bottom: 10px;
-}
-
-
-/* ========================================
-   CENA
-======================================== */
-
-.cena {
-    position: relative;
-
+.jogo {
     width: 100%;
+    height: 100vh;
+}
 
-    height: 500px;
 
+.topo {
+    height: 80px;
+    background-color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 30px;
+}
+
+.vidas {
+    font-size: 30px;
+}
+
+.nome {
+    font-size: 22px;
+    font-weight: bold;
+    color: #e91e63;
+}
+
+
+.cenario {
+    width: 100%;
+    height: calc(100vh - 80px);
+
+    position: relative;
     overflow: hidden;
 
-    background: #65c7ff;
-
-    border-radius: 10px;
+    background-color: #87ceeb;
 }
 
 
-/* ========================================
-   SOL
-======================================== */
-
-.sol {
-    position: absolute;
-
-    width: 80px;
-
-    height: 80px;
-
-    background: #ffd83d;
-
-    border-radius: 50%;
-
-    top: 50px;
-
-    right: 100px;
-}
-
-
-/* ========================================
-   NUVENS
-======================================== */
 
 .nuvem {
     position: absolute;
-
-    width: 150px;
-
-    height: 50px;
-
-    background: white;
-
-    border-radius: 50px;
+    font-size: 70px;
 }
-
-
-/* Primeira nuvem */
 
 .nuvem1 {
-    top: 80px;
-
-    left: 100px;
+    top: 40px;
+    left: 15%;
 }
-
-
-/* Segunda nuvem */
 
 .nuvem2 {
-    top: 150px;
-
-    left: 500px;
+    top: 100px;
+    right: 15%;
 }
 
 
-/* ========================================
-   ÁRVORES
-======================================== */
 
 .arvore {
     position: absolute;
-
-    bottom: 110px;
-
-    width: 120px;
-
-    height: 200px;
+    font-size: 130px;
+    bottom: 70px;
 }
-
-
-/* ========================================
-   TRONCO
-======================================== */
-
-.tronco {
-    position: absolute;
-
-    bottom: 0;
-
-    left: 45px;
-
-    width: 30px;
-
-    height: 100px;
-
-    background: #795548;
-
-    border-radius: 5px;
-}
-
-
-/* ========================================
-   COPA DA ÁRVORE
-======================================== */
-
-.copa {
-    position: absolute;
-
-    top: 20px;
-
-    left: 10px;
-
-    width: 100px;
-
-    height: 100px;
-
-    background: #2e8b3c;
-
-    border-radius: 50%;
-}
-
-
-/* ========================================
-   POSIÇÃO DAS ÁRVORES
-======================================== */
 
 .arvore1 {
-    left: 80px;
+    left: 5%;
 }
 
 .arvore2 {
-    left: 45%;
-}
-
-.arvore3 {
-    right: 80px;
+    right: 5%;
 }
 
 
-/* ========================================
-   GRAMA
-======================================== */
 
-.grama {
+.princesa {
+    position: absolute;
+
+    left: 50%;
+    bottom: 80px;
+
+    transform: translateX(-50%);
+
+    font-size: 130px;
+}
+
+
+
+.chao {
     position: absolute;
 
     bottom: 0;
-
     left: 0;
 
     width: 100%;
+    height: 100px;
 
-    height: 120px;
+    background-color: #6db36d;
 
-    background: #45a843;
-
-    border-top: 8px solid #318c32;
+    border-top: 8px solid #4d914d;
 }
-
-
-/* ========================================
-   INFORMAÇÃO
-======================================== */
-
-.informacao {
-    background: white;
-
-    padding: 20px;
-
-    margin-top: 20px;
-
-    border-radius: 10px;
-}
-
-.destaque {
-    font-weight: bold;
-
-    color: #2e8b3c;
-}
-
-
-/* ========================================
-   RESPONSIVIDADE
-======================================== */
-
-@media (max-width: 700px) {
-
-    .cena {
-        height: 450px;
-    }
-
-    .nuvem2 {
-        left: 55%;
-    }
-
-    .arvore1 {
-        left: 20px;
-        transform: scale(0.8);
-    }
-
-    .arvore2 {
-        left: 40%;
-        transform: scale(0.8);
-    }
-
-    .arvore3 {
-        right: 10px;
-        transform: scale(0.8);
-    }
-
-  }
