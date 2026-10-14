@@ -1,39 +1,45 @@
-
-
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aventura da Princesa</title>
+    <title>Jogo do Mario</title>
     <link rel="stylesheet" href="style.css">
+    <script src="Script.js" defer></script>
 </head>
 <body>
+    <main class="jogo">
+        <h1>Jogo do Mario</h1>
+        <p>Desvie do obstáculo e tente conseguir pontos!</p>
 
-    <h1>👑 Aventura da Princesa 👑</h1>
+        <div class="cenario" id="cenario">
+            <div class="sol">☀️</div>
+            <div class="nuvem nuvem1">☁️</div>
+            <div class="nuvem nuvem2">☁️</div>
 
-    <div class="painel">
-        <span>Pontos: <strong id="pontos">0</strong></span>
-        <span id="vidas">❤️❤️❤️</span>
-    </div>
+            <div class="personagem" id="personagem" aria-label="Mario">🧑🏻‍🔧</div>
+            <div class="obstaculo" id="obstaculo">🌳</div>
 
-    <div class="cenario" id="cenario">
-        <div id="personagem">👸</div>
-        <div id="arvore">🌳</div>
+            <div class="chao">
+                <div class="grama"></div>
+                <div class="terra"></div>
+            </div>
 
-        <div id="mensagem" class="escondida">
-            <h2 id="tituloMensagem">Fim de jogo!</h2>
-            <p id="textoMensagem"></p>
-            <button id="reiniciar">Jogar novamente</button>
+            <div class="mensagem" id="mensagem">
+                Clique em Jogar para começar!
+            </div>
         </div>
-    </div>
 
-    <div class="botoes">
-        <button id="iniciar">Começar jogo</button>
-        <button id="pular">Pular! ⬆️</button>
-    </div>
+        <p class="pontuacao">Pontuação: <span id="pontos">0</span></p>
 
-    <!-- Carrega o JavaScript. O nome precisa ser igual ao do arquivo. -->
-    <script src="Script.js"></script>
+        <div class="controles">
+            <button id="pular" type="button">Pular</button>
+            <button id="jogar" type="button">Jogar</button>
+            <button id="novamente" type="button">Jogar novamente</button>
+            <button id="voltar" type="button">Voltar ao cadastro</button>
+        </div>
+
+        <p class="ajuda">Use a barra de espaço, a seta para cima ou o botão Pular.</p>
+    </main>
 </body>
 </html>
