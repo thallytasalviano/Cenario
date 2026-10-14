@@ -1,92 +1,125 @@
-const formulario = document.getElementById("formPrincesa");
-const lista = document.getElementById("listaPrincesas");
-const botao = document.getElementById("botao");
 
-let princesas = JSON.parse(localStorage.getItem("princesas")) || [];
-let editando = null;
-
-mostrarPrincesas();
-
-formulario.addEventListener("submit", function(evento) {
-    evento.preventDefault();
-
-    const princesa = {
-        nome: document.getElementById("nome").value.trim(),
-        reino: document.getElementById("reino").value.trim(),
-        idade: document.getElementById("idade").value,
-        poder: document.getElementById("poder").value.trim()
-    };
-
-    if (!princesa.nome || !princesa.reino ||
-        !princesa.idade || !princesa.poder) {
-        alert("Preencha todos os campos!");
-        return;
-    }
-
-    if (editando !== null) {
-        princesas[editando] = princesa;
-        editando = null;
-        botao.textContent = "Cadastrar";
-    } else {
-        princesas.push(princesa);
-    }
-
-    localStorage.setItem("princesas", JSON.stringify(princesas));
-
-    formulario.reset();
-    mostrarPrincesas();
-});
-
-function mostrarPrincesas() {
-    lista.innerHTML = "";
-
-    princesas.forEach(function(princesa, index) {
-        const card = document.createElement("div");
-        card.className = "card";
-
-        card.innerHTML = `
-            <h2>👑 ${princesa.nome}</h2>
-            <p><strong>Reino:</strong> ${princesa.reino}</p>
-            <p><strong>Idade:</strong> ${princesa.idade}</p>
-            <p><strong>Poder:</strong> ${princesa.poder}</p>
-            <div class="botoes">
-                <button type="button" onclick="editarPrincesa(${index})">Editar</button>
-                <button type="button" onclick="excluirPrincesa(${index})">Excluir</button>
-                <button type="button" onclick="jogarPrincesa(${index})">Jogar</button>
-            </div>
-        `;
-
-        lista.appendChild(card);
-    });
+* {
+    box-sizing: border-box;
 }
 
-function editarPrincesa(index) {
-    const princesa = princesas[index];
-
-    document.getElementById("nome").value = princesa.nome;
-    document.getElementById("reino").value = princesa.reino;
-    document.getElementById("idade").value = princesa.idade;
-    document.getElementById("poder").value = princesa.poder;
-
-    editando = index;
-    botao.textContent = "Salvar alteração";
-
-    window.scrollTo({ top: 0, behavior: "smooth" });
+body {
+    margin: 0;
+    padding: 20px 10px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(#ffe6f2, #fff8fc);
+    color: #8c3268;
 }
 
-function excluirPrincesa(index) {
-    if (confirm("Deseja excluir esta princesa?")) {
-        princesas.splice(index, 1);
-        localStorage.setItem("princesas", JSON.stringify(princesas));
-        mostrarPrincesas();
-    }
+h1 {
+    font-size: 25px;
+    margin-bottom: 20px;
 }
 
-function jogarPrincesa(index) {
-    localStorage.setItem(
-        "princesaSelecionada",
-        JSON.stringify(princesas[index])
-    );
+.painel {
+    display: flex;
+    justify-content: space-between;
+    max-width: 700px;
+    margin: 0 auto 10px;
+    padding: 0 5px;
+    font-size: 20px;
+}
 
-    window.location.href = "https://thallytasalviano.github.io/Cenario/";
+.cenario {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    height: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 4px solid #e7a3cf;
+    border-radius: 15px;
+    background: linear-gradient(#9de5ff 0%, #e9faff 75%, #a9df83 75%);
+}
+
+.cenario::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    background: #77bd61;
+    border-top: 4px solid #4e963f;
+}
+
+#personagem {
+    position: absolute;
+    z-index: 2;
+    left: 45px;
+    bottom: 30px;
+    font-size: 52px;
+    line-height: 1;
+}
+
+#personagem.pulando {
+    animation: pulo 650ms ease-out;
+}
+
+@keyframes pulo {
+    0% { bottom: 30px; }
+    45% { bottom: 145px; }
+    100% { bottom: 30px; }
+}
+
+#arvore {
+    position: absolute;
+    z-index: 2;
+    left: 100%;
+    bottom: 28px;
+    font-size: 48px;
+    line-height: 1;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background: #d94f9a;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+#mensagem {
+    position: absolute;
+    z-index: 5;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 238, 248, 0.94);
+    padding: 15px;
+}
+
+#mensagem h2 {
+    margin: 0 0 8px;
+}
+
+#mensagem p {
+    font-size: 18px;
+}
+
+.escondida {
+    display: none !important;
 }
