@@ -1,32 +1,38 @@
-<!DOCTYPE html>
-<html lang="pt-br">
 
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Cenário</title>
-
+    <title>Aventura da Princesa</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <div class="cenario">
+    <h1>👑 Aventura da Princesa 👑</h1>
 
-        <div class="nuvem nuvem1">☁️</div>
-        <div class="nuvem nuvem2">☁️</div>
-
-        <div class="arvore arvore1">🌳</div>
-        <div class="arvore arvore2">🌳</div>
-
-        <div class="chao">
-            <div class="grama"></div>
-            <div class="terra"></div>
-        </div>
-
+    <div class="painel">
+        <span>Pontos: <strong id="pontos">0</strong></span>
+        <span id="vidas">❤️❤️❤️</span>
     </div>
 
-</body>
+    <div class="cenario" id="cenario">
+        <div id="personagem">👸</div>
+        <div id="arvore">🌳</div>
 
+        <div id="mensagem" class="escondida">
+            <h2 id="tituloMensagem">Fim de jogo!</h2>
+            <p id="textoMensagem"></p>
+            <button id="reiniciar">Jogar novamente</button>
+        </div>
+    </div>
+
+    <div class="botoes">
+        <button id="iniciar">Começar jogo</button>
+        <button id="pular">Pular! ⬆️</button>
+    </div>
+
+    <!-- Carrega o JavaScript. O nome precisa ser igual ao do arquivo. -->
+    <script src="Script.js"></script>
+</body>
 </html>
