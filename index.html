@@ -1,57 +1,38 @@
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aventura das Princesas</title>
+    <title>Aventura da Princesa</title>
     <link rel="stylesheet" href="style.css">
-    <script src="Script.js" defer></script>
 </head>
 <body>
-    <main class="jogo">
-        <h1>👑 Aventura das Princesas</h1>
-        <p id="nomePrincesa">Prepare-se para a aventura!</p>
 
-        <div class="painel">
-            <div>Vidas: <span id="vidas">❤️❤️❤️</span></div>
-            <div>⭐ Pontos: <span id="pontos">0</span></div>
+    <h1>👑 Aventura da Princesa 👑</h1>
+
+    <div class="painel">
+        <span>Pontos: <strong id="pontos">0</strong></span>
+        <span id="vidas">❤️❤️❤️</span>
+    </div>
+
+    <div class="cenario" id="cenario">
+        <div id="personagem">👸</div>
+        <div id="arvore">🌳</div>
+
+        <div id="mensagem" class="escondida">
+            <h2 id="tituloMensagem">Fim de jogo!</h2>
+            <p id="textoMensagem"></p>
+            <button id="reiniciar">Jogar novamente</button>
         </div>
+    </div>
 
-        <div class="cenario" id="cenario">
-            <div class="sol">☀️</div>
-            <div class="nuvem nuvem1">☁️</div>
-            <div class="nuvem nuvem2">☁️</div>
+    <div class="botoes">
+        <button id="iniciar">Começar jogo</button>
+        <button id="pular">Pular! ⬆️</button>
+    </div>
 
-            <div id="personagem">👸</div>
-            <div id="obstaculo">🌳</div>
-
-            <div class="chao">
-                <div class="grama"></div>
-                <div class="terra"></div>
-            </div>
-
-            <div id="mensagem" class="mensagem">
-                <h2 id="tituloMensagem">✨ A aventura vai começar!</h2>
-                <p id="textoMensagem">Desvie das árvores e proteja suas vidas!</p>
-            </div>
-        </div>
-
-        <div class="controles">
-            <button id="esquerda" type="button">⬅️</button>
-            <button id="pular" type="button">Pular ⬆️</button>
-            <button id="direita" type="button">➡️</button>
-        </div>
-
-        <div class="botoes">
-            <button id="jogar" type="button">Jogar</button>
-            <button id="novamente" type="button">Jogar novamente</button>
-            <button id="voltar" type="button">Voltar ao cadastro</button>
-        </div>
-
-        <p class="ajuda">
-            Use as setas para andar e a barra de espaço para pular.
-            No celular, use os botões.
-        </p>
-    </main>
+    <!-- Carrega o JavaScript. O nome precisa ser igual ao do arquivo. -->
+    <script src="Script.js"></script>
 </body>
 </html>
