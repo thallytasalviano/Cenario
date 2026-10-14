@@ -1,73 +1,125 @@
+
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    background-color: #65c6e8;
+    padding: 20px 10px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(#ffe6f2, #fff8fc);
+    color: #8c3268;
+}
+
+h1 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.painel {
+    display: flex;
+    justify-content: space-between;
+    max-width: 700px;
+    margin: 0 auto 10px;
+    padding: 0 5px;
+    font-size: 20px;
 }
 
 .cenario {
-    width: 100%;
-    height: 100vh;
-
     position: relative;
+    width: 100%;
+    max-width: 700px;
+    height: 300px;
+    margin: 0 auto;
     overflow: hidden;
-
-    background-color: #65c6e8;
+    border: 4px solid #e7a3cf;
+    border-radius: 15px;
+    background: linear-gradient(#9de5ff 0%, #e9faff 75%, #a9df83 75%);
 }
 
-.nuvem {
-    position: absolute;
-    font-size: 90px;
-}
-
-.nuvem1 {
-    top: 50px;
-    left: 15%;
-}
-
-.nuvem2 {
-    top: 70px;
-    right: 15%;
-}
-
-.arvore {
-    position: absolute;
-    bottom: 95px;
-
-    font-size: 160px;
-}
-
-.arvore1 {
-    left: 40%;
-}
-
-.arvore2 {
-    right: 8%;
-}
-
-.chao {
+.cenario::after {
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
-
     width: 100%;
-    height: 130px;
+    height: 35px;
+    background: #77bd61;
+    border-top: 4px solid #4e963f;
 }
 
-.grama {
-    width: 100%;
-    height: 40px;
-
-    background-color: #63c83f;
-
-    border-top: 7px solid #4caf24;
+#personagem {
+    position: absolute;
+    z-index: 2;
+    left: 45px;
+    bottom: 30px;
+    font-size: 52px;
+    line-height: 1;
 }
 
-.terra {
-    width: 100%;
-    height: 90px;
+#personagem.pulando {
+    animation: pulo 650ms ease-out;
+}
 
-    background-color: #99552f;
+@keyframes pulo {
+    0% { bottom: 30px; }
+    45% { bottom: 145px; }
+    100% { bottom: 30px; }
+}
+
+#arvore {
+    position: absolute;
+    z-index: 2;
+    left: 100%;
+    bottom: 28px;
+    font-size: 48px;
+    line-height: 1;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background: #d94f9a;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+#mensagem {
+    position: absolute;
+    z-index: 5;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 238, 248, 0.94);
+    padding: 15px;
+}
+
+#mensagem h2 {
+    margin: 0 0 8px;
+}
+
+#mensagem p {
+    font-size: 18px;
+}
+
+.escondida {
+    display: none !important;
 }
