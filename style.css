@@ -1,63 +1,125 @@
 
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    padding: 20px 10px;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(#ffe6f2, #fff8fc);
-    color: #8c3268;
-}
-
-h1 {
-    font-size: 25px;
-    margin-bottom: 20px;
-}
-
-.painel {
-    display: flex;
-    justify-content: space-between;
-    max-width: 700px;
-    margin: 0 auto 10px;
-    padding: 0 5px;
-    font-size: 20px;
-}
-
-.cenario {
-    position: relative;
-    width: 100%;
-    max-width: 700px;
-    height: 300px;
-    margin: 0 auto;
-    overflow: hidden;
-    border: 4px solid #e7a3cf;
-    border-radius: 15px;
-    background: linear-gradient(#9de5ff 0%, #e9faff 75%, #a9df83 75%);
-}
-
-.cenario::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 35px;
-    background: #77bd61;
-    border-top: 4px solid #4e963f;
-}
-
+    
+/* Princesa em estilo Minecraft */
 #personagem {
     position: absolute;
-    z-index: 2;
     left: 45px;
     bottom: 30px;
-    font-size: 52px;
-    line-height: 1;
+    width: 64px;
+    height: 100px;
+    font-size: initial;
+    line-height: normal;
+    z-index: 2;
 }
 
+/* Coroa */
+#personagem .coroa {
+    position: absolute;
+    top: -14px;
+    left: 19px;
+    font-size: 20px;
+    z-index: 5;
+}
+
+/* Cabeça e cabelo */
+#personagem .cabeca {
+    position: absolute;
+    top: 5px;
+    left: 13px;
+    width: 38px;
+    height: 35px;
+    background: #f2bd91;
+    border: 3px solid #75432d;
+    image-rendering: pixelated;
+}
+
+#personagem .cabelo {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 37px;
+    height: 13px;
+    background: #6b351d;
+    border: 3px solid #482313;
+}
+
+#personagem .rosto {
+    position: absolute;
+    top: 11px;
+    left: 2px;
+    color: #39221a;
+}
+
+#personagem .olhos {
+    font-size: 9px;
+    white-space: nowrap;
+}
+
+#personagem .boca {
+    position: absolute;
+    top: 8px;
+    left: 9px;
+    font-size: 8px;
+}
+
+/* Vestido rosa */
+#personagem .corpo {
+    position: absolute;
+    top: 40px;
+    left: 13px;
+    width: 38px;
+    height: 30px;
+    background: #ff75b9;
+    border: 3px solid #d83e8b;
+}
+
+#personagem .corpo::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 12px;
+    width: 6px;
+    height: 18px;
+    background: #fff0a8;
+}
+
+/* Braços */
+#personagem .braco {
+    position: absolute;
+    top: 42px;
+    width: 13px;
+    height: 28px;
+    background: #f2bd91;
+    border: 2px solid #75432d;
+}
+
+#personagem .braco-esquerdo {
+    left: 0;
+}
+
+#personagem .braco-direito {
+    right: 0;
+}
+
+/* Pernas */
+#personagem .perna {
+    position: absolute;
+    top: 70px;
+    width: 15px;
+    height: 25px;
+    background: #f5c0df;
+    border: 2px solid #a84b81;
+}
+
+#personagem .perna-esquerda {
+    left: 14px;
+}
+
+#personagem .perna-direita {
+    left: 36px;
+}
+
+/* Mantém o pulo da princesa */
 #personagem.pulando {
     animation: pulo 650ms ease-out;
 }
@@ -66,60 +128,4 @@ h1 {
     0% { bottom: 30px; }
     45% { bottom: 145px; }
     100% { bottom: 30px; }
-}
-
-#arvore {
-    position: absolute;
-    z-index: 2;
-    left: 100%;
-    bottom: 28px;
-    font-size: 48px;
-    line-height: 1;
-}
-
-.botoes {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 18px;
-}
-
-button {
-    padding: 12px 20px;
-    border: none;
-    border-radius: 25px;
-    background: #d94f9a;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:active {
-    transform: scale(0.96);
-}
-
-#mensagem {
-    position: absolute;
-    z-index: 5;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 238, 248, 0.94);
-    padding: 15px;
-}
-
-#mensagem h2 {
-    margin: 0 0 8px;
-}
-
-#mensagem p {
-    font-size: 18px;
-}
-
-.escondida {
-    display: none !important;
 }
