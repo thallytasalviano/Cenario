@@ -1,36 +1,36 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aventura da Princesa</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aventura da Princesa</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>👑 Aventura da Princesa 👑</h1>
+  <h1>👑 Aventura da Princesa 👑</h1>
 
-    <div class="painel">
-        <span>Pontos: <strong id="pontos">0</strong></span>
-        <span id="vidas">❤️❤️❤️</span>
+  <div class="painel">
+    <span>Pontos: <strong id="pontos">0</strong></span>
+    <span id="vidas">❤️❤️❤️</span>
+  </div>
+
+  <div class="cenario" id="cenario">
+    <div id="personagem">👸</div>
+    <div id="arvore">🌳</div>
+
+    <div id="mensagem" class="escondida">
+      <h2 id="tituloMensagem">Fim de jogo!</h2>
+      <p id="textoMensagem"></p>
+      <button id="reiniciar" type="button">
+        Jogar novamente
+      </button>
     </div>
+  </div>
 
-    <div class="cenario" id="cenario">
-        <div id="personagem">👸</div>
-        <div id="arvore">🌳</div>
-
-        <div id="mensagem" class="escondida">
-            <h2 id="tituloMensagem">Fim de jogo!</h2>
-            <p id="textoMensagem"></p>
-            <button id="reiniciar">Jogar novamente</button>
-        </div>
-    </div>
-
-    <div class="botoes">
-        <button id="iniciar">Começar jogo</button>
-        <button id="pular">Pular! ⬆️</button>
-    </div>
-
-    <script src="script.js"></script>
+  <div class="botoes">
+    <button id="iniciar" type="button">Começar jogo</button>
+    <button id="pular" type="button">Pular! ⬆️</button>
+  </div>
 </body>
 </html>
