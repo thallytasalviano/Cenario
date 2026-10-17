@@ -1,4 +1,5 @@
-  const personagem = document.getElementById("personagem");
+  
+const personagem = document.getElementById("personagem");
 const arvore = document.getElementById("arvore");
 const pontosEl = document.getElementById("pontos");
 const vidasEl = document.getElementById("vidas");
@@ -9,6 +10,27 @@ const tituloMensagem = document.getElementById("tituloMensagem");
 const textoMensagem = document.getElementById("textoMensagem");
 const reiniciarBtn = document.getElementById("reiniciar");
 const cenario = document.getElementById("cenario");
+
+
+const nomePrincesaEl = document.getElementById("nomePrincesa");
+
+try {
+  const escolhida = JSON.parse(
+    localStorage.getItem("princesaEscolhida")
+  );
+
+  if (escolhida && escolhida.nome) {
+    nomePrincesaEl.textContent =
+      "👑 Princesa " + escolhida.nome + ", sua aventura começa agora!";
+  }
+} catch (erro) {
+  const escolhida = localStorage.getItem("princesaEscolhida");
+
+  if (escolhida) {
+    nomePrincesaEl.textContent =
+      "👑 Princesa " + escolhida;
+  }
+}
 
 let rodando = false;
 let pulando = false;
@@ -22,7 +44,6 @@ let invulneravel = false;
 
 function atualizarPainel() {
   pontosEl.textContent = pontos;
-
   vidasEl.textContent =
     "❤️".repeat(vidas) + "🖤".repeat(3 - vidas);
 }
@@ -31,8 +52,8 @@ function pular() {
   if (!rodando || pulando) return;
 
   pulando = true;
-
   personagem.classList.remove("pulando");
+
   void personagem.offsetWidth;
   personagem.classList.add("pulando");
 
@@ -59,8 +80,8 @@ function iniciar() {
   arvore.style.left = obstaculoX + "px";
   personagem.classList.remove("pulando");
   mensagem.classList.add("escondida");
-  iniciarBtn.textContent = "Recomeçar jogo";
 
+  iniciarBtn.textContent = "Recomeçar jogo";
   atualizarPainel();
 
   frame = requestAnimationFrame(ciclo);
@@ -81,13 +102,14 @@ function colisao() {
 function ciclo(tempo) {
   if (!rodando) return;
 
-  if (!ultimoTempo) {
-    ultimoTempo = tempo;
-  }
+  if (!ultimoTempo) ultimoTempo = tempo;
 
-  const delta = Math.min((tempo - ultimoTempo) / 16.67, 2);
+  const delta = Math.min(
+    (tempo - ultimoTempo) / 16.67,
+    2
+  );
+
   ultimoTempo = tempo;
-
   obstaculoX -= velocidade * delta;
 
   const largura = cenario.clientWidth;
@@ -104,7 +126,6 @@ function ciclo(tempo) {
   if (!invulneravel && colisao() && !pulando) {
     vidas--;
     invulneravel = true;
-
     atualizarPainel();
 
     obstaculoX = largura + 30;
